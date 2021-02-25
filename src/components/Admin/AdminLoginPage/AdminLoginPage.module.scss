@@ -1,15 +1,22 @@
 .inputStyles {
-  width: 568px;
-  height: 65px;
   border-color: #707070;
-  font-size: 1.25rem;
-  @apply rounded p-1.5 m-3 border
+  @apply rounded p-3.5 m-3 ml-0 mr-0 w-full border
 }
 
 .buttonStyles {
   background-color: #FF8000;
   color: #FFF;
-  width: 244.53px;
-  height: 85px;
-  @apply text-3xl
+  @apply text-3xl p-3.5 rounded
+}
+
+@media screen and (min-width: 1024px) {
+  .inputStyles {
+    width: 568px;
+    height: 65px;
+    font-size: 1.25rem;
+  }
+  .buttonStyles {
+    width: 244.53px;
+    height: 85px;
+  }
 }

@@ -1,19 +1,40 @@
 .inputStyles {
-  width: 568px;
-  height: 65px;
   border-color: #707070;
-  font-size: 1.25rem;
-  @apply rounded p-1.5 m-3 border
+  @apply w-full rounded p-3.5 mt-3 mb-3 border
 }
 
 .buttonStyles {
   background-color: #FF8000;
   color: #FFF;
-  width: 244.53px;
-  height: 85px;
-  @apply text-3xl
+  @apply text-3xl p-3.5 rounded
 }
 
 .textStyles {
-  @apply text-3xl font-black mb-3.5
+  @apply text-2xl font-black mb-0.5 lg:w-auto lg:text-3xl lg:mb-3.5
+}
+
+.navBarStyles {
+  flex: 1;
+  @apply flex border-b bg-white flex-shrink-0 items-center justify-center lg:justify-start
+}
+
+.containerStyles {
+  flex: 9;
+  @apply flex flex-col justify-center items-center p-3.5
+}
+
+@media screen and (min-width: 1024px) {
+  .inputStyles {
+    width: 568px;
+    height: 65px;
+    font-size: 1.25rem;
+  }
+  .buttonStyles {
+    width: 244.53px;
+    height: 85px;
+  }
+}
+
+.c {
+  flex: 1 4;
 }

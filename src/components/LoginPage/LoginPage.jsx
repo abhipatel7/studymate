@@ -3,6 +3,7 @@ import Input from '../Input/Input';
 import classes from './LoginPage.module.scss';
 import Button from '../Button/Button';
 import NavBar from '../NavBar/NavBar';
+import Logo from '../../assets/img/StudyMateAdminLogo.svg';
 
 const LoginPage = () => {
   let [email, setEmail] = useState('');
@@ -18,11 +19,11 @@ const LoginPage = () => {
   const handlePasswordChange = (e) => setPassword(e.target.value);
 
   return (
-    <div className="">
-      <NavBar />
-      <div className="flex items-center justify-center flex-col mt-72">
+    <div className="flex flex-col h-screen">
+      <NavBar styles={classes.navBarStyles} />
+      <div className={classes.containerStyles}>
         <span className={classes.textStyles}>Enter Your Credentials</span>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="w-full lg:w-auto">
           <Input
             name="email"
             type="email"

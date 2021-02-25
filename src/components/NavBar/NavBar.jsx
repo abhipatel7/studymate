@@ -2,9 +2,9 @@ import React from 'react';
 import classes from './NavBar.module.scss';
 import Logo from '../../assets/img/StudyMateNabBar.svg';
 
-const NavBar = (props) => {
+const NavBar = ({ styles, ...props }) => {
   return (
-    <nav className={`bg-white ${classes.navbarStyles}`}>
+    <nav {...props} className={`${styles ? styles : classes.navbarStyles}`}>
       <img
         className={classes.imageStyles}
         src={Logo}

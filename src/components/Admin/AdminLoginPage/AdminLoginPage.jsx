@@ -18,9 +18,9 @@ const AdminLoginPage = () => {
   const handlePasswordChange = (e) => setPassword(e.target.value);
 
   return (
-    <div className="flex items-center justify-center flex-col h-screen">
-      <img src={Logo} alt="StudyMateAdminLogo" />
-      <form onSubmit={handleSubmit}>
+    <div className="h-screen mx-auto flex-col flex justify-center p-3.5 lg:items-center lg:content-center">
+      <img className="" src={Logo} alt="StudyMateAdminLogo" />
+      <form onSubmit={handleSubmit} className="">
         <Input
           name="email"
           type="email"
