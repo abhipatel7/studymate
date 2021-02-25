@@ -1,0 +1,19 @@
+.inputStyles {
+  width: 568px;
+  height: 65px;
+  border-color: #707070;
+  font-size: 1.25rem;
+  @apply rounded p-1.5 m-3 border
+}
+
+.buttonStyles {
+  background-color: #FF8000;
+  color: #FFF;
+  width: 244.53px;
+  height: 85px;
+  @apply text-3xl
+}
+
+.textStyles {
+  @apply text-3xl font-black mb-3.5
+}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="575" height="84" viewBox="0 0 575 84">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="575" height="84" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Repeat_Grid_5" data-name="Repeat Grid 5" clip-path="url(#clip-path)">
+    <g id="Group_114" data-name="Group 114" transform="translate(-791 -281)">
+      <text id="StudyMate" transform="translate(791 344)" fill="#07f" font-size="60" font-family="Poppins-Bold, Poppins" font-weight="700"><tspan x="0" y="0" fill="#000">Study</tspan><tspan y="0" fill="#07f">Mate</tspan></text>
+      <text id="Admin" transform="translate(1199 341)" fill="#707070" font-size="50" font-family="Poppins-Medium, Poppins" font-weight="500"><tspan x="0" y="0">Admin</tspan></text>
+      <text id="_" data-name="|" transform="translate(1158 341)" fill="#707070" font-size="50" font-family="Poppins-Medium, Poppins" font-weight="500"><tspan x="0" y="0">|</tspan></text>
+    </g>
+  </g>
+</svg>
