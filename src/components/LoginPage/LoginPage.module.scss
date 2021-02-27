@@ -18,6 +18,10 @@
   @apply flex border-b bg-white flex-shrink-0 items-center justify-center lg:justify-start
 }
 
+.formStyles {
+  @apply w-full lg:w-auto
+}
+
 .containerStyles {
   flex: 9;
   @apply flex flex-col justify-center items-center p-3.5
