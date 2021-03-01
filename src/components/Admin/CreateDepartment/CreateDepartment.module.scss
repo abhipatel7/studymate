@@ -20,11 +20,27 @@ input[type=number] {
 .buttonStyles {
   background-color: #FF8000;
   color: #FFF;
+  @apply text-3xl p-2.5 mt-3 pl-10 pr-10 rounded
 }
 
 .navBarStyles {
   flex: 1;
   @apply flex border-b bg-white flex-shrink-0 items-center justify-center lg:justify-start
+}
+
+.addBtnStyles {
+  height: 35px;
+  border-color: #707070;
+  @apply absolute border rounded-3xl pb-1.5 pr-10 pt-0.5 pl-2.5 top-3.5 lg:top-5 right-1.5 lg:right-3.5 lg:text-xl bg-white shadow
+}
+
+.addIconStyles {
+  color: rgb(255, 128, 0);
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  top: -1px;
+  right: 0px;
 }
 
 .formStyles {
@@ -50,15 +66,7 @@ input[type=number] {
     width: 206.53px;
     height: 85px;
   }
-  .c {
-    @apply flex
-  }
-  .c .inputStyles {
-    width: 422px;
-    @apply flex-1
-  }
-
-  .c .inputStyles:first-child {
-    margin-right: 1rem;
+  .addBtnStyles {
+    font-size: 0.875rem;
   }
 }

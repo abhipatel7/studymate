@@ -59,10 +59,9 @@ const CreateStudent = () => {
             handleChange={handleEmailChange}
             required
           />
-          <div className={`lg:flex ${classes.c} `}>
+          <div className={classes.c}>
             <select
               name="department"
-              type="text"
               className={classes.inputStyles}
               value={department}
               onChange={handleDepartmentChange}
@@ -91,7 +90,10 @@ const CreateStudent = () => {
               required
             />
           </div>
-          <Button type="submit" styles={classes.buttonStyles}>
+          <Button
+            type="submit"
+            styles={`${classes.buttonStyles} text-3xl p-2.5 mt-3 pl-10 pr-10 rounded`}
+          >
             Add ->
           </Button>
         </form>
