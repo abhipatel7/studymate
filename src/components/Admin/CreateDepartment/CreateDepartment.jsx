@@ -3,18 +3,25 @@ import classes from './CreateDepartment.module.scss';
 import Input from '../../Input/Input';
 import NavBar from '../../NavBar/NavBar';
 import Button from '../../Button/Button';
-import { Select } from 'antd';
 import { IoIosAddCircle } from 'react-icons/io';
+import Modal from '../../Modal/Modal';
+import SearchBar from '../../SearchBar/SearchBar';
+import ImageCard from '../../ImageCard/ImageCard';
 
 const CreateDepartment = () => {
   const [name, setName] = useState('');
-  const [year, setYear] = useState(null);
+  const [year, setYear] = useState('');
   const [faculty, setFaculty] = useState('');
+  const [show, setShow] = useState(false);
+
+  const showModal = () => setShow(true);
+  const hideModal = () => setShow(false);
 
   const handleSubmit = (e) => {
+    console.log('submit');
     e.preventDefault();
     setName('');
-    setYear(null);
+    setYear('');
     setFaculty('');
   };
 
@@ -53,9 +60,13 @@ const CreateDepartment = () => {
               styles={classes.inputStyles}
               value={faculty}
               placeholder="Add Faculty (optional)"
-              handleChange={handleYearChange}
+              handleChange={handleFacultyChange}
             />
-            <Button styles={classes.addBtnStyles}>
+            <Button
+              type="button"
+              onClick={showModal}
+              styles={classes.addBtnStyles}
+            >
               Faculty
               <IoIosAddCircle
                 className={classes.addIconStyles}
@@ -63,6 +74,14 @@ const CreateDepartment = () => {
                 size="1rem"
               />
             </Button>
+            <Modal show={show} handleClose={hideModal}>
+              <SearchBar />
+              <ImageCard name="Abhi" id="1234567" />
+              <ImageCard name="Anyo" id="1234567" />
+              <ImageCard name="Jay" id="1234567" />
+              <ImageCard name="Hiren" id="1234567" />
+              <ImageCard name="Banti" id="1234567" />
+            </Modal>
           </div>
           <Button type="submit" styles={classes.buttonStyles}>
             Add ->
