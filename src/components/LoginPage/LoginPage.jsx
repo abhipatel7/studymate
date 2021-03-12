@@ -4,18 +4,17 @@ import classes from './LoginPage.module.scss';
 import Button from '../Button/Button';
 import NavBar from '../NavBar/NavBar';
 
-const LoginPage = () => {
+const LoginPage = (props) => {
   let [email, setEmail] = useState('');
   let [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setEmail('');
-    setPassword('');
-  };
-
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    props.handleSubmit(email, password);
+  };
 
   return (
     <div className="flex flex-col h-screen">

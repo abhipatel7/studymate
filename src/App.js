@@ -2,9 +2,10 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import AdminLoginPage from './components/Admin/AdminLoginPage/AdminLoginPage';
-import LoginPage from './components/LoginPage/LoginPage';
 import CreateStudent from './components/Admin/CreateStudent/CreateStudent';
 import CreateDepartment from './components/Admin/CreateDepartment/CreateDepartment';
+import StudentLoginPage from './components/Student/StudentLoginPage/StudentLoginPage';
+import FacultyLoginPage from './components/Faculty/FacultyLoginPage/FacultyLoginPage';
 
 const App = () => {
   return (
@@ -17,7 +18,8 @@ const App = () => {
           path="/admin/create-department"
           component={CreateDepartment}
         />
-        <Route exact path="/login" component={LoginPage} />
+        <Route exact path="/student/login" component={StudentLoginPage} />
+        <Route exact path="/faculty/login" component={FacultyLoginPage} />
         <Route path="*" render={() => 'Error 404 Page Not Found'} />
       </Switch>
     </BrowserRouter>

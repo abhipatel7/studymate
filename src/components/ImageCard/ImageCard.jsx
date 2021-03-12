@@ -5,7 +5,7 @@ const ImageCard = (props) => (
     <img
       className="rounded-full w-14 bg-gray-100 mr-4"
       src={`https://robohash.org/${Math.floor(Math.random() * 10)}.png`}
-      alt={`${props.name}'s Photo`}
+      alt=""
     />
     <div className="flex flex-col mt-1">
       <h1 className="text-xl">{props.name}</h1>

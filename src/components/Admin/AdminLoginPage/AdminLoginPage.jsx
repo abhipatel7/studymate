@@ -3,6 +3,7 @@ import Input from '../../Input/Input';
 import classes from './AdminLoginPage.module.scss';
 import Button from '../../Button/Button';
 import Logo from '../../../assets/img/StudyMateAdminLogo.svg';
+import axios from 'axios';
 
 const AdminLoginPage = () => {
   let [email, setEmail] = useState('');
@@ -10,6 +11,14 @@ const AdminLoginPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const user = {
+      email,
+      password,
+    };
+    axios
+      .post('http://localhost:3001/api/v1/admin/login', user)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err.message));
     setEmail('');
     setPassword('');
   };
