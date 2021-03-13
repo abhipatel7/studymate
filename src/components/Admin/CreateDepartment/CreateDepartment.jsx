@@ -19,7 +19,6 @@ const CreateDepartment = () => {
   const hideModal = () => setShow(false);
 
   const handleSubmit = (e) => {
-    console.log('submit');
     e.preventDefault();
     setName('');
     setYear('');
