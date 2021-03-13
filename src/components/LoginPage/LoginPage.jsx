@@ -5,8 +5,8 @@ import Button from '../Button/Button';
 import NavBar from '../NavBar/NavBar';
 
 const LoginPage = (props) => {
-  let [email, setEmail] = useState('');
-  let [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
@@ -41,7 +41,7 @@ const LoginPage = (props) => {
             required
           />
           <Button type="submit" styles={classes.buttonStyles}>
-            Submit ->
+            Submit `&gt;`
           </Button>
         </form>
       </div>

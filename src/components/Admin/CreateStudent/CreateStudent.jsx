@@ -94,7 +94,7 @@ const CreateStudent = () => {
             type="submit"
             styles={`${classes.buttonStyles} text-3xl p-2.5 mt-3 pl-10 pr-10 rounded`}
           >
-            Add ->
+            Add `&gt;`
           </Button>
         </form>
       </div>

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { IoIosAddCircle } from 'react-icons/io';
+
 import classes from './CreateDepartment.module.scss';
 import Input from '../../Input/Input';
 import NavBar from '../../NavBar/NavBar';
 import Button from '../../Button/Button';
-import { IoIosAddCircle } from 'react-icons/io';
 import Modal from '../../Modal/Modal';
 import SearchBar from '../../SearchBar/SearchBar';
 import ImageCard from '../../ImageCard/ImageCard';
@@ -84,7 +85,7 @@ const CreateDepartment = () => {
             </Modal>
           </div>
           <Button type="submit" styles={classes.buttonStyles}>
-            Add ->
+            Add `&gt;`
           </Button>
         </form>
       </div>

@@ -1,6 +1,7 @@
 import React from 'react';
-import LoginPage from '../../LoginPage/LoginPage';
 import axios from 'axios';
+
+import LoginPage from '../../LoginPage/LoginPage';
 
 const StudentLoginPage = () => {
   const handleSubmit = (email, password) => {

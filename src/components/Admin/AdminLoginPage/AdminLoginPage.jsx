@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+
 import Input from '../../Input/Input';
 import classes from './AdminLoginPage.module.scss';
 import Button from '../../Button/Button';
 import Logo from '../../../assets/img/StudyMateAdminLogo.svg';
-import axios from 'axios';
 
 const AdminLoginPage = () => {
-  let [email, setEmail] = useState('');
-  let [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -49,7 +50,7 @@ const AdminLoginPage = () => {
           required
         />
         <Button type="submit" styles={classes.buttonStyles}>
-          Submit ->
+          Submit `&gt;`
         </Button>
       </form>
     </div>
