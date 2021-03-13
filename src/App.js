@@ -9,20 +9,18 @@ import FacultyLoginPage from './components/Faculty/FacultyLoginPage/FacultyLogin
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/admin/login" component={AdminLoginPage} />
-        <Route exact path="/admin/create-student" component={CreateStudent} />
-        <Route
-          exact
-          path="/admin/create-department"
-          component={CreateDepartment}
-        />
-        <Route exact path="/student/login" component={StudentLoginPage} />
-        <Route exact path="/faculty/login" component={FacultyLoginPage} />
-        <Route path="*" render={() => 'Error 404 Page Not Found'} />
-      </Switch>
-    </BrowserRouter>
+    <Switch>
+      <Route exact path="/admin/login" component={AdminLoginPage} />
+      <Route exact path="/admin/create-student" component={CreateStudent} />
+      <Route
+        exact
+        path="/admin/create-department"
+        component={CreateDepartment}
+      />
+      <Route exact path="/student/login" component={StudentLoginPage} />
+      <Route exact path="/faculty/login" component={FacultyLoginPage} />
+      <Route path="*" render={() => 'Error 404 Page Not Found'} />
+    </Switch>
   );
 };
 

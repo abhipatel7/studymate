@@ -1,18 +1,14 @@
 import React from 'react';
-import axios from 'axios';
 
 import LoginPage from '../../LoginPage/LoginPage';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../../../store/actions/user';
 
 const StudentLoginPage = () => {
+  const dispatch = useDispatch();
+
   const handleSubmit = (email, password) => {
-    const user = {
-      email,
-      password,
-    };
-    axios
-      .post('http://localhost:3001/api/v1/student/login', user)
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err.message));
+    dispatch(loginUser(email, password, 'student'));
   };
 
   return <LoginPage handleSubmit={handleSubmit} />;
