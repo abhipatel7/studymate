@@ -85,7 +85,8 @@ const CreateDepartment = () => {
             </Modal>
           </div>
           <Button type="submit" styles={classes.buttonStyles}>
-            Add <FiArrowRight />
+            Add
+            <FiArrowRight />
           </Button>
         </form>
       </div>

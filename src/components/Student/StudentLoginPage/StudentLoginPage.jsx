@@ -12,7 +12,7 @@ const StudentLoginPage = () => {
     dispatch(loginUser(email, password, ROLES.student));
   };
 
-  return <LoginPage handleSubmit={handleSubmit} />;
+  return <LoginPage isAdmin={false} handleSubmit={handleSubmit} />;
 };
 
 export default StudentLoginPage;
