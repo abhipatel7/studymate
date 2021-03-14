@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { FiArrowRight } from 'react-icons/fi';
+
 import Input from '../Input/Input';
 import classes from './LoginPage.module.scss';
 import Button from '../Button/Button';
@@ -41,7 +43,7 @@ const LoginPage = (props) => {
             required
           />
           <Button type="submit" styles={classes.buttonStyles}>
-            Submit `&gt;`
+            Submit <FiArrowRight />
           </Button>
         </form>
       </div>

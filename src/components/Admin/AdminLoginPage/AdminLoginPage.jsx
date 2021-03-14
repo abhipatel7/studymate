@@ -1,27 +1,26 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { FiArrowRight } from 'react-icons/fi';
 
 import Input from '../../Input/Input';
 import classes from './AdminLoginPage.module.scss';
 import Button from '../../Button/Button';
 import Logo from '../../../assets/img/StudyMateAdminLogo.svg';
+import { loginUser } from '../../../store/actions/user';
+
+import ROLES from '../../../ROLES';
 
 const AdminLoginPage = () => {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const user = {
-      email,
-      password,
-    };
-    axios
-      .post('http://localhost:3001/api/v1/admin/login', user)
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err.message));
-    setEmail('');
-    setPassword('');
+    dispatch(loginUser(email, password, ROLES.admin));
   };
 
   const handleEmailChange = (e) => setEmail(e.target.value);
@@ -50,7 +49,7 @@ const AdminLoginPage = () => {
           required
         />
         <Button type="submit" styles={classes.buttonStyles}>
-          Submit `&gt;`
+          Submit <FiArrowRight />
         </Button>
       </form>
     </div>

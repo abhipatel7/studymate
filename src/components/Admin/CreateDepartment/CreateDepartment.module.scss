@@ -23,6 +23,10 @@ input[type=number] {
   @apply text-3xl p-2.5 mt-3 pl-10 pr-10 rounded
 }
 
+.buttonStyles > svg {
+  @apply inline-block
+}
+
 .navBarStyles {
   flex: 1;
   @apply flex border-b bg-white flex-shrink-0 items-center justify-center lg:justify-start

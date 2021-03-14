@@ -9,6 +9,10 @@
   @apply text-3xl p-3.5 rounded
 }
 
+.buttonStyles > svg {
+  @apply inline-block
+}
+
 @media screen and (min-width: 1024px) {
   .inputStyles {
     width: 568px;
