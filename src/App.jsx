@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import AdminLoginPage from './components/Admin/AdminLoginPage/AdminLoginPage';
 import CreateStudent from './components/Admin/CreateStudent/CreateStudent';
