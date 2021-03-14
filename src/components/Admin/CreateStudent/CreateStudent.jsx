@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { FiArrowRight } from 'react-icons/fi';
+
 import classes from './CreateStudent.module.scss';
 import Input from '../../Input/Input';
 import NavBar from '../../NavBar/NavBar';
@@ -94,7 +96,7 @@ const CreateStudent = () => {
             type="submit"
             styles={`${classes.buttonStyles} text-3xl p-2.5 mt-3 pl-10 pr-10 rounded`}
           >
-            Add `&gt;`
+            Add <FiArrowRight />
           </Button>
         </form>
       </div>

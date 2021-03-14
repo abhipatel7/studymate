@@ -9,6 +9,10 @@
   @apply text-3xl p-3.5 rounded
 }
 
+.buttonStyles > svg {
+  @apply inline-block
+}
+
 .textStyles {
   @apply text-2xl font-black mb-0.5 lg:w-auto lg:text-3xl lg:mb-3.5
 }

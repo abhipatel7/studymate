@@ -8,6 +8,10 @@ export const loginUser = (email, password, user) => (dispatch) => {
       email, password,
     })
     .then((res) => {
+      const {
+        access_token,
+        refresh_token,
+      } = res.data.data;
       res = res.data.data[user];
       const {
         id,
@@ -34,12 +38,14 @@ export const loginUser = (email, password, user) => (dispatch) => {
             phoneNumber: phone_number,
             enrollmentNumber,
             departmentId,
+            accessToken: access_token,
+            refreshToken: refresh_token,
           },
         },
       );
     })
     .catch((e) => {
-      console.log(e.message);
-      dispatch({ type: actionTypes.USER_LOGIN_FAIL });
+      const message = e.response.data.msg || 'Something went wrong';
+      dispatch({ type: actionTypes.USER_LOGIN_FAIL, error: message });
     });
 };
