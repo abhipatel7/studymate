@@ -20,6 +20,9 @@ input[type=number] {
 .buttonStyles {
   background-color: #FF8000;
   color: #FFF;
+  svg {
+    @apply inline-block
+  }
 }
 
 .navBarStyles {

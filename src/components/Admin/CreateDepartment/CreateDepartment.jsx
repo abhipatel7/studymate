@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { IoIosAddCircle } from 'react-icons/io';
+import { FiArrowRight } from 'react-icons/fi';
 
 import classes from './CreateDepartment.module.scss';
 import Input from '../../Input/Input';
@@ -85,7 +86,7 @@ const CreateDepartment = () => {
             </Modal>
           </div>
           <Button type="submit" styles={classes.buttonStyles}>
-            Add `&gt;`
+            Add <FiArrowRight />
           </Button>
         </form>
       </div>
