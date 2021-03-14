@@ -3,7 +3,6 @@ import axios from 'axios';
 import * as actionTypes from './actionTypes';
 
 export const loginUser = (email, password, user) => (dispatch) => {
-  console.log(email, password);
   axios
     .post(`http://localhost:3001/api/v1/${user}/login`, {
       email, password,
