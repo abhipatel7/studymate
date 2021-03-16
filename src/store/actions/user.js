@@ -1,37 +1,36 @@
-import axios from 'axios';
-
+import axios from '../../axios';
 import * as actionTypes from './actionTypes';
 
-export const loginUser = (email, password, user) => (dispatch) => {
+export const loginUser = (email, password, role) => (dispatch) => {
   axios
-    .post(`http://localhost:3001/api/v1/${user}/login`, {
+    .post(`/${role}/login`, {
       email, password,
     })
     .then((res) => {
       const {
         access_token,
         refresh_token,
-      } = res.data.data;
-      res = res.data.data[user];
+      } = res.data;
+      const user = res.data[role];
       const {
         id,
         name,
         email,
         phone_number,
-      } = res;
+      } = user;
       let departmentId = null;
       let enrollmentNumber = null;
-      if (user === 'student') {
-        departmentId = res.department_id;
-        enrollmentNumber = res.enrollment_number;
-      } else if (user === 'faculty') {
-        departmentId = res.department_id;
+      if (role === 'student') {
+        departmentId = user.department_id;
+        enrollmentNumber = user.enrollment_number;
+      } else if (role === 'faculty') {
+        departmentId = user.department_id;
       }
       dispatch(
         {
           type: actionTypes.USER_LOGIN_SUCCESS,
           payload: {
-            role: user,
+            role,
             id,
             name,
             email,
@@ -45,7 +44,7 @@ export const loginUser = (email, password, user) => (dispatch) => {
       );
     })
     .catch((e) => {
-      const message = e.response.data.msg || 'Something went wrong';
+      const message = e.msg;
       dispatch({ type: actionTypes.USER_LOGIN_FAIL, error: message });
     });
 };
