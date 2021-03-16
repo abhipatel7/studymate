@@ -1,18 +1,19 @@
 import React from 'react';
-
 import { useDispatch } from 'react-redux';
+
 import { loginUser } from '../../../store/actions/user';
+import LoginPage from '../../LoginPage/LoginPage';
 
 import ROLES from '../../../ROLES';
-import LoginPage from "../../LoginPage/LoginPage";
 
 const AdminLoginPage = () => {
   const dispatch = useDispatch();
+
   const handleSubmit = (email, password) => {
-    dispatch(loginUser(email, password, ROLES.student));
+    dispatch(loginUser(email, password, ROLES.admin));
   };
 
-  return <LoginPage isAdmin={true} handleSubmit={handleSubmit} />;
+  return <LoginPage isAdmin handleSubmit={handleSubmit} />;
 };
 
 export default AdminLoginPage;

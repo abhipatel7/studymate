@@ -1,5 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+import axios from './axios';
 import './App.css';
 import AdminLoginPage from './components/Admin/AdminLoginPage/AdminLoginPage';
 import CreateStudent from './components/Admin/CreateStudent/CreateStudent';
@@ -8,6 +11,11 @@ import StudentLoginPage from './components/Student/StudentLoginPage/StudentLogin
 import FacultyLoginPage from './components/Faculty/FacultyLoginPage/FacultyLoginPage';
 
 const App = () => {
+  const token = useSelector((state) => state.user.accessToken);
+  if (token) {
+    axios.defaults.headers.Authorization = `Bearer ${token}`;
+  }
+
   return (
     <Switch>
       <Route exact path="/admin/login" component={AdminLoginPage} />
