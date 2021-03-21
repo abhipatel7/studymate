@@ -1,7 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { useLocation } from 'react-router';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const SidebarContent = (props) => {
   const { items, location } = props;
@@ -38,7 +37,6 @@ const Sidebar = (props) => {
   } = props;
 
   const location = useLocation();
-  console.log(location.pathname);
 
   return (
     <div className="flex flex-col h-full justify-between items-center border-r shadow-lg">
