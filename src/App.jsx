@@ -9,6 +9,11 @@ import CreateStudent from './components/Admin/CreateStudent/CreateStudent';
 import CreateDepartment from './components/Admin/CreateDepartment/CreateDepartment';
 import StudentLoginPage from './components/Student/StudentLoginPage/StudentLoginPage';
 import FacultyLoginPage from './components/Faculty/FacultyLoginPage/FacultyLoginPage';
+import Sidebar from './components/sidebar/Sidebar';
+import classes from './components/LoginPage/LoginPage.module.scss';
+import NavBar from './components/NavBar/NavBar';
+
+import sidebarItems from './constants/sidebar';
 
 const App = () => {
   const token = useSelector((state) => state.user.accessToken);
@@ -17,18 +22,32 @@ const App = () => {
   }
 
   return (
-    <Switch>
-      <Route exact path="/admin/login" component={AdminLoginPage} />
-      <Route exact path="/admin/create-student" component={CreateStudent} />
-      <Route
-        exact
-        path="/admin/create-department"
-        component={CreateDepartment}
-      />
-      <Route exact path="/student/login" component={StudentLoginPage} />
-      <Route exact path="/faculty/login" component={FacultyLoginPage} />
-      <Route path="*" render={() => 'Error 404 Page Not Found'} />
-    </Switch>
+    <div className="flex flex-col min-h-screen">
+      <div className="flex flex-row flex-none h-11">
+        <NavBar isAdmin styles={classes.navBarStyles} />
+      </div>
+      <div className="flex flex-row flex-1">
+        <div className="w-1/6 flex-none">
+          <Sidebar
+            items={sidebarItems}
+          />
+        </div>
+        <div className="bg-white flex-auto">
+          <Switch>
+            <Route exact path="/admin/login" component={AdminLoginPage} />
+            <Route exact path="/admin/create-student" component={CreateStudent} />
+            <Route
+              exact
+              path="/admin/create-department"
+              component={CreateDepartment}
+            />
+            <Route exact path="/student/login" component={StudentLoginPage} />
+            <Route exact path="/faculty/login" component={FacultyLoginPage} />
+            <Route path="*" render={() => 'Error 404 Page Not Found'} />
+          </Switch>
+        </div>
+      </div>
+    </div>
   );
 };
 

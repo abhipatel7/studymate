@@ -19,8 +19,7 @@ const LoginPage = (props) => {
   };
 
   return (
-    <div className="flex flex-col h-screen">
-      <NavBar isAdmin={props.isAdmin} styles={classes.navBarStyles} />
+    <div className="flex flex-col h-full">
       <div className={classes.containerStyles}>
         <span className={classes.textStyles}>Enter Your Credentials</span>
         <form onSubmit={handleSubmit} className={classes.formStyles}>
