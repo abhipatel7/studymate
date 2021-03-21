@@ -31,7 +31,7 @@ const userReducer = (state = initialState, action) => {
       };
     case actionTypes.USER_LOGIN_FAIL:
       return {
-        ...state,
+        ...initialState,
         loading: false,
         error: action.error,
       };

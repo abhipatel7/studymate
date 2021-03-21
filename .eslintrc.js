@@ -7,5 +7,8 @@ module.exports = {
     'linebreak-style': ['error', process.platform === 'win32' ? 'windows' : 'unix'],
     'react/jsx-props-no-spreading': 'off',
     'react/jsx-one-expression-per-line': 'off',
+    'quote-props': 'off',
+    'camelcase': 'off',
+    'import/prefer-default-export': 'off',
   },
 };
