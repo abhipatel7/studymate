@@ -1,21 +1,30 @@
-import { FiHome } from 'react-icons/fi';
+import { FiHome, FiLogOut } from 'react-icons/fi';
+import { GiTeacher } from 'react-icons/gi';
+import { FaUserGraduate } from 'react-icons/fa';
 
-const sidebarItems = [
+
+export const sidebarItems = [
   {
     label: 'Home',
     icon: <FiHome size={25} />,
     route: '/admin/login',
   },
   {
-    label: 'Student',
-    icon: <FiHome size={25} />,
+    label: 'Students',
+    icon: <FaUserGraduate size={25} />,
     route: '/student/login',
   },
   {
-    label: 'Faculty',
-    icon: <FiHome size={25} />,
+    label: 'Faculties',
+    icon: <GiTeacher size={25} />,
     route: '/faculty/login',
   },
 ];
 
-export default sidebarItems;
+export const sidebarItemsBottom = [
+  {
+    label: 'Logout',
+    icon: <FiLogOut size={25} />,
+    route: '/logout',
+  },
+];

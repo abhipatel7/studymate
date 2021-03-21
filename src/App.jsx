@@ -13,7 +13,7 @@ import Sidebar from './components/sidebar/Sidebar';
 import classes from './components/LoginPage/LoginPage.module.scss';
 import NavBar from './components/NavBar/NavBar';
 
-import sidebarItems from './constants/sidebar';
+import { sidebarItems, sidebarItemsBottom } from './constants/sidebar';
 
 const App = () => {
   const token = useSelector((state) => state.user.accessToken);
@@ -21,18 +21,21 @@ const App = () => {
     axios.defaults.headers.Authorization = `Bearer ${token}`;
   }
 
+  // TODO - Remove sidebar from login screen
+
   return (
     <div className="flex flex-col min-h-screen">
       <div className="flex flex-row flex-none h-11">
         <NavBar isAdmin styles={classes.navBarStyles} />
       </div>
-      <div className="flex flex-row flex-1">
+      <div className="flex flex-row flex-1 bg-white">
         <div className="w-1/6 flex-none">
           <Sidebar
             items={sidebarItems}
+            bottom={sidebarItemsBottom}
           />
         </div>
-        <div className="bg-white flex-auto">
+        <div className="bg-gray-100 flex-auto">
           <Switch>
             <Route exact path="/admin/login" component={AdminLoginPage} />
             <Route exact path="/admin/create-student" component={CreateStudent} />
