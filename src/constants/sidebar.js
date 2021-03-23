@@ -2,7 +2,6 @@ import { FiHome, FiLogOut } from 'react-icons/fi';
 import { GiTeacher } from 'react-icons/gi';
 import { FaUserGraduate } from 'react-icons/fa';
 
-
 export const sidebarItems = [
   {
     label: 'Home',

@@ -3,24 +3,10 @@
   @apply rounded p-3.5 m-3 ml-0 mr-0 w-full border
 }
 
-.buttonStyles {
-  background-color: #FF8000;
-  color: #FFF;
-  @apply text-3xl p-3.5 rounded
-}
-
-.buttonStyles > svg {
-  @apply inline-block
-}
-
 @media screen and (min-width: 1024px) {
   .inputStyles {
     width: 568px;
     height: 65px;
     font-size: 1.25rem;
-  }
-  .buttonStyles {
-    width: 244.53px;
-    height: 85px;
   }
 }

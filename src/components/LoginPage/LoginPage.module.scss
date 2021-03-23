@@ -3,16 +3,6 @@
   @apply w-full rounded p-3.5 mt-3 mb-3 border
 }
 
-.buttonStyles {
-  background-color: #FF8000;
-  color: #FFF;
-  @apply text-3xl p-3.5 rounded
-}
-
-.buttonStyles > svg {
-  @apply inline-block
-}
-
 .textStyles {
   @apply text-2xl font-black mb-0.5 lg:w-auto lg:text-3xl lg:mb-3.5
 }
@@ -23,7 +13,7 @@
 }
 
 .formStyles {
-  @apply w-full lg:w-auto
+  @apply w-full flex flex-col items-center lg:w-auto
 }
 
 .containerStyles {

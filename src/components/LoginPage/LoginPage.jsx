@@ -4,7 +4,6 @@ import { FiArrowRight } from 'react-icons/fi';
 import Input from '../Input/Input';
 import classes from './LoginPage.module.scss';
 import Button from '../Button/Button';
-import NavBar from '../NavBar/NavBar';
 
 const LoginPage = (props) => {
   const [email, setEmail] = useState('');
@@ -41,9 +40,11 @@ const LoginPage = (props) => {
             handleChange={handlePasswordChange}
             required
           />
-          <Button type="submit" styles={classes.buttonStyles}>
+          <Button
+            type="ss"
+            icon={<FiArrowRight size={25} />}
+          >
             Submit
-            <FiArrowRight />
           </Button>
         </form>
       </div>
