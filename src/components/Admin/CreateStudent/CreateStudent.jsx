@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 
-import classes from './CreateStudent.module.scss';
 import Input from '../../Input/Input';
-import NavBar from '../../NavBar/NavBar';
 import Button from '../../Button/Button';
 
 const CreateStudent = () => {
@@ -29,78 +27,70 @@ const CreateStudent = () => {
   const handlePhoneNoChange = (e) => setPhoneNo(e.target.value);
 
   return (
-    <div className="flex flex-col h-screen">
-      <NavBar styles={classes.navBarStyles} />
-      <div className={classes.containerStyles}>
-        <span className={classes.textStyles}>Enter Student Details</span>
-        <form onSubmit={handleSubmit} className={classes.formStyles}>
-          <Input
-            name="name"
-            type="text"
-            styles={classes.inputStyles}
-            value={name}
-            placeholder="Enter Full Name"
-            handleChange={handleNameChange}
+    <div className="flex flex-col justify-center items-center space-y-3 h-full">
+      <span className="text-2xl font-black lg:w-auto lg:text-3xl">Enter Student Details</span>
+      <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center space-y-3 w-11/12 sm:w-1/2 lg:w-4/12">
+        <Input
+          name="name"
+          type="text"
+          value={name}
+          placeholder="Enter Full Name"
+          handleChange={handleNameChange}
+          required
+        />
+        <Input
+          name="enrollmentNo"
+          type="number"
+          value={enrollmentNo}
+          placeholder="Enter Enrollment No"
+          handleChange={handleEnrollmentNoChange}
+          required
+        />
+        <Input
+          name="email"
+          type="email"
+          value={email}
+          placeholder="Enter Email Address"
+          handleChange={handleEmailChange}
+          required
+        />
+        <div className="flex flex-row space-x-3 items-center justify-center w-full">
+          <select
+            name="department"
+            value={department}
+            className="w-1/2"
+            onChange={handleDepartmentChange}
             required
-          />
-          <Input
-            name="enrollmentNo"
-            type="number"
-            styles={classes.inputStyles}
-            value={enrollmentNo}
-            placeholder="Enter Enrollment No"
-            handleChange={handleEnrollmentNoChange}
-            required
-          />
-          <Input
-            name="email"
-            type="email"
-            styles={classes.inputStyles}
-            value={email}
-            placeholder="Enter Email Address"
-            handleChange={handleEmailChange}
-            required
-          />
-          <div className={classes.c}>
-            <select
-              name="department"
-              className={classes.inputStyles}
-              value={department}
-              onChange={handleDepartmentChange}
-              required
-            >
-              <option value="" disabled selected>
-                Select Department
-              </option>
-              <option value="automobile">Automobile Engineering</option>
-              <option value="chemical">Chemical Engineering</option>
-              <option value="cse">Computer Science Engineering</option>
-              <option value="electrical">Electrical Engineering</option>
-              <option value="ec">Electronics and Communications</option>
-              <option value="it">Information Technology</option>
-              <option value="mechanical">Mechanical Engineering</option>
-            </select>
-            <Input
-              name="phoneNo"
-              type="number"
-              min="10"
-              max="10"
-              styles={classes.inputStyles}
-              value={phoneNo}
-              placeholder="Enter Phone No"
-              handleChange={handlePhoneNoChange}
-              required
-            />
-          </div>
-          <Button
-            type="submit"
-            styles={`${classes.buttonStyles} text-3xl p-2.5 mt-3 pl-10 pr-10 rounded`}
           >
-            Add
-            <FiArrowRight />
-          </Button>
-        </form>
-      </div>
+            <option value="" disabled selected>
+              Select Department
+            </option>
+            <option value="automobile">Automobile Engineering</option>
+            <option value="chemical">Chemical Engineering</option>
+            <option value="cse">Computer Science Engineering</option>
+            <option value="electrical">Electrical Engineering</option>
+            <option value="ec">Electronics and Communications</option>
+            <option value="it">Information Technology</option>
+            <option value="mechanical">Mechanical Engineering</option>
+          </select>
+          <Input
+            name="phoneNo"
+            type="number"
+            min="10"
+            max="10"
+            value={phoneNo}
+            placeholder="Enter Phone No"
+            handleChange={handlePhoneNoChange}
+            required
+          />
+        </div>
+        <Button
+          type="submit"
+          icon={<FiArrowRight />}
+        >
+          Add
+        </Button>
+      </form>
     </div>
   );
 };

@@ -25,6 +25,7 @@ const colors = {
     800: '#003066',
     900: '#001833',
   },
+  customGray: '#707070',
 };
 
 module.exports = colors;

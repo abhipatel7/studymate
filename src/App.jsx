@@ -10,7 +10,6 @@ import CreateDepartment from './components/Admin/CreateDepartment/CreateDepartme
 import StudentLoginPage from './components/Student/StudentLoginPage/StudentLoginPage';
 import FacultyLoginPage from './components/Faculty/FacultyLoginPage/FacultyLoginPage';
 import Sidebar from './components/sidebar/Sidebar';
-import classes from './components/LoginPage/LoginPage.module.scss';
 import NavBar from './components/NavBar/NavBar';
 
 import { sidebarItems, sidebarItemsBottom } from './constants/sidebar';
@@ -26,7 +25,7 @@ const App = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <div className="flex flex-row flex-none h-11">
-        <NavBar isAdmin styles={classes.navBarStyles} />
+        <NavBar isAdmin />
       </div>
       <div className="flex flex-row flex-1 bg-white">
         <div className="w-1/6 flex-none">
