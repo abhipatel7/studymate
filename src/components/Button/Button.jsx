@@ -9,11 +9,13 @@ const Button = (props) => {
     rounded,
     type,
     color,
+    onClick,
   } = props;
   return (
     <button
       // eslint-disable-next-line react/button-has-type
       type={type}
+      onClick={onClick}
       className={classnames(
         'text-white text-xl focus:outline-none outline-none py-3 px-4 flex space-x-2 justify-between items-center',
         {
@@ -41,6 +43,7 @@ Button.propTypes = {
   icon: PropTypes.element,
   rounded: PropTypes.bool,
   color: PropTypes.oneOf(['primary', 'secondary']),
+  onClick: PropTypes.func,
 };
 
 Button.defaultProps = {
@@ -48,6 +51,7 @@ Button.defaultProps = {
   icon: null,
   rounded: false,
   color: null,
+  onClick: undefined,
 };
 
 export default Button;

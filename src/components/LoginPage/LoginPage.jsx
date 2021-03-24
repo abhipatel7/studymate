@@ -41,7 +41,7 @@ const LoginPage = (props) => {
             required
           />
           <Button
-            type="ss"
+            type="submit"
             icon={<FiArrowRight size={25} />}
           >
             Submit
