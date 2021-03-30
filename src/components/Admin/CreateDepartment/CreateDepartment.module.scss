@@ -27,11 +27,6 @@ input[type=number] {
   @apply inline-block
 }
 
-.navBarStyles {
-  flex: 1;
-  @apply flex border-b bg-white flex-shrink-0 items-center justify-center lg:justify-start
-}
-
 .addBtnStyles {
   height: 35px;
   border-color: #707070;
@@ -45,19 +40,6 @@ input[type=number] {
   height: 34px;
   top: -1px;
   right: 0px;
-}
-
-.formStyles {
-  @apply w-full lg:w-auto
-}
-
-.formStyles:nth-last-child(2) {
-  width: 422px !important;
-}
-
-.containerStyles {
-  flex: 9;
-  @apply flex flex-col justify-center items-center p-3.5
 }
 
 @media screen and (min-width: 1024px) {

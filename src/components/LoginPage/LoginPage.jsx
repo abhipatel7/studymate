@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 
+import PageTitle from '../PageTitle/PageTitle';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
 
@@ -19,7 +20,7 @@ const LoginPage = (props) => {
   return (
     <div className="flex flex-col h-full">
       <div className="flex flex-col h-full space-y-3 justify-center items-center">
-        <span className="text-2xl font-semibold">Enter Your Credentials</span>
+        <PageTitle>Enter Your Credentials</PageTitle>
         <form onSubmit={handleSubmit} className="flex flex-col space-y-3 items-center w-11/12 sm:w-1/2 lg:w-4/12">
           <Input
             name="email"

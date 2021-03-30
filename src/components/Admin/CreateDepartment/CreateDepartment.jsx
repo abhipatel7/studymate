@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { IoIosAddCircle } from 'react-icons/io';
+import { BsPlusCircleFill } from 'react-icons/bs';
 import { FiArrowRight } from 'react-icons/fi';
+import { RiCloseCircleFill } from 'react-icons/ri';
 
 import classes from './CreateDepartment.module.scss';
+
+import PageTitle from '../../PageTitle/PageTitle';
 import Input from '../../Input/Input';
-import NavBar from '../../NavBar/NavBar';
 import Button from '../../Button/Button';
 import Modal from '../../Modal/Modal';
 import SearchBar from '../../SearchBar/SearchBar';
 import ImageCard from '../../ImageCard/ImageCard';
+import Selector from "../../Selector/Selector";
 
 const CreateDepartment = () => {
   const [name, setName] = useState('');
@@ -31,65 +34,42 @@ const CreateDepartment = () => {
   const handleFacultyChange = (e) => setFaculty(e.target.value);
 
   return (
-    <div className="flex flex-col h-screen">
-      <NavBar styles={classes.navBarStyles} />
-      <div className={classes.containerStyles}>
-        <span className={classes.textStyles}>Enter Student Details</span>
-        <form onSubmit={handleSubmit} className={classes.formStyles}>
-          <Input
-            name="name"
-            type="text"
-            styles={classes.inputStyles}
-            value={name}
-            placeholder="Enter Full Name"
-            handleChange={handleNameChange}
-            required
-          />
-          <Input
-            name="academicYears"
-            type="number"
-            styles={classes.inputStyles}
-            value={year}
-            placeholder="Enter Enrollment No"
-            handleChange={handleYearChange}
-            required
-          />
-          <div className="relative">
-            <Input
-              name="faculty"
-              type="text"
-              styles={classes.inputStyles}
-              value={faculty}
-              placeholder="Add Faculty (optional)"
-              handleChange={handleFacultyChange}
-            />
-            <Button
-              type="button"
-              onClick={showModal}
-              styles={classes.addBtnStyles}
-            >
-              Faculty
-              <IoIosAddCircle
-                className={classes.addIconStyles}
-                color="#FF8000"
-                size="1rem"
-              />
-            </Button>
-            <Modal show={show} handleClose={hideModal}>
-              <SearchBar />
-              <ImageCard name="Abhi" id="1234567" />
-              <ImageCard name="Anyo" id="1234567" />
-              <ImageCard name="Jay" id="1234567" />
-              <ImageCard name="Hiren" id="1234567" />
-              <ImageCard name="Banti" id="1234567" />
-            </Modal>
-          </div>
-          <Button type="submit" styles={classes.buttonStyles}>
-            Add
-            <FiArrowRight />
-          </Button>
-        </form>
-      </div>
+    <div className="flex flex-col h-full justify-center items-center space-y-3">
+      <PageTitle>Add New Department</PageTitle>
+      <form onSubmit={handleSubmit} className="flex flex-col space-y-3 items-center w-11/12 sm:w-1/2 lg:w-4/12">
+        <Input
+          name="name"
+          type="text"
+          value={name}
+          placeholder="Enter Full Name"
+          handleChange={handleNameChange}
+          required
+        />
+        <Input
+          name="academicYears"
+          type="number"
+          value={year}
+          placeholder="Enter Enrollment No"
+          handleChange={handleYearChange}
+          required
+        />
+        <Selector />
+        <Modal show={show} handleClose={hideModal}>
+          <SearchBar />
+          <ImageCard name="Abhi" id="1234567" />
+          <ImageCard name="Anyo" id="1234567" />
+          <ImageCard name="Jay" id="1234567" />
+          <ImageCard name="Hiren" id="1234567" />
+          <ImageCard name="Banti" id="1234567" />
+        </Modal>
+        <Button
+          type="submit"
+          icon={<FiArrowRight />}
+          styles={classes.buttonStyles}
+        >
+          Add
+        </Button>
+      </form>
     </div>
   );
 };
