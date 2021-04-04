@@ -12,16 +12,18 @@ import FacultyLoginPage from './components/Faculty/FacultyLoginPage/FacultyLogin
 import Sidebar from './components/sidebar/Sidebar';
 import NavBar from './components/NavBar/NavBar';
 import routes from './constants/routes';
+import PrivateRoute from './hoc/route/PrivateRoute';
+import PublicRoute from './hoc/route/PublicRoute';
 
 import { sidebarItems, sidebarItemsBottom } from './constants/sidebar';
+import roles from './ROLES';
 
+/* eslint-disable max-len */
 const App = () => {
   const token = useSelector((state) => state.user.accessToken);
   if (token) {
     axios.defaults.headers.Authorization = `Bearer ${token}`;
   }
-
-  // TODO - Remove sidebar from login screen
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -29,19 +31,19 @@ const App = () => {
         <NavBar isAdmin />
       </div>
       <div className="flex flex-row flex-1 bg-white">
-        <div className="w-1/6 flex-none">
-          <Sidebar
-            items={sidebarItems}
-            bottom={sidebarItemsBottom}
-          />
-        </div>
+        {token
+          ? (
+            <div className="w-1/6 flex-none">
+              <Sidebar items={sidebarItems} bottom={sidebarItemsBottom} />
+            </div>
+          ) : null}
         <div className="bg-gray-100 flex-auto">
           <Switch>
-            <Route exact path={routes.adminLogin} component={AdminLoginPage} />
-            <Route exact path={routes.createStudent} component={CreateStudent} />
-            <Route exact path={routes.createDepartment} component={CreateDepartment} />
-            <Route exact path={routes.studentLogin} component={StudentLoginPage} />
-            <Route exact path={routes.facultyLogin} component={FacultyLoginPage} />
+            <PublicRoute exact restricted path={routes.adminLogin} component={AdminLoginPage} />
+            <PrivateRoute requiredRole={roles.admin} exact path={routes.createStudent} component={CreateStudent} />
+            <PrivateRoute requiredRole={roles.admin} exact path={routes.createDepartment} component={CreateDepartment} />
+            <PublicRoute restricted exact path={routes.studentLogin} component={StudentLoginPage} />
+            <PublicRoute restricted exact path={routes.facultyLogin} component={FacultyLoginPage} />
             <Route path="*" render={() => 'Error 404 Page Not Found'} />
           </Switch>
         </div>
