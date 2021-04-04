@@ -10,5 +10,7 @@ module.exports = {
     'quote-props': 'off',
     'camelcase': 'off',
     'import/prefer-default-export': 'off',
+    'no-undef': 'error',
+    'consistent-return': 'off',
   },
 };

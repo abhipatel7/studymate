@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 
+import PageTitle from '../../PageTitle/PageTitle';
 import Input from '../../Input/Input';
 import Button from '../../Button/Button';
 
@@ -28,7 +29,7 @@ const CreateStudent = () => {
 
   return (
     <div className="flex flex-col justify-center items-center space-y-3 h-full">
-      <span className="text-2xl font-black lg:w-auto lg:text-3xl">Enter Student Details</span>
+      <PageTitle>Enter Student Details</PageTitle>
       <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center space-y-3 w-11/12 sm:w-1/2 lg:w-4/12">
         <Input
           name="name"

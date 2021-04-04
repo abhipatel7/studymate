@@ -1,95 +1,108 @@
-import React, { useState } from 'react';
-import { IoIosAddCircle } from 'react-icons/io';
+import React, { useEffect, useState } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 
-import classes from './CreateDepartment.module.scss';
+import { toast } from 'react-toastify';
+import PageTitle from '../../PageTitle/PageTitle';
 import Input from '../../Input/Input';
-import NavBar from '../../NavBar/NavBar';
 import Button from '../../Button/Button';
-import Modal from '../../Modal/Modal';
-import SearchBar from '../../SearchBar/SearchBar';
-import ImageCard from '../../ImageCard/ImageCard';
+import Selector from '../../Selector/Selector';
 
 const CreateDepartment = () => {
   const [name, setName] = useState('');
-  const [year, setYear] = useState('');
-  const [faculty, setFaculty] = useState('');
-  const [show, setShow] = useState(false);
+  const [terms, setTerms] = useState('');
+  const [fees, setFees] = useState('');
+  const [code, setCode] = useState('');
+  const [faculties, setFaculties] = useState([]);
+  const [selectedFaculties, setSelectedFaculties] = useState([]);
 
-  const showModal = () => setShow(true);
-  const hideModal = () => setShow(false);
+  // TODO - Get faculties from api
+  useEffect(() => {
+    setFaculties([
+      {
+        id: 1,
+        name: 'Anirudh',
+      }, {
+        id: 2,
+        name: 'Vidhi',
+      }, {
+        id: 3,
+        name: 'Abhishek',
+      }, {
+        id: 4,
+        name: 'Pranav',
+      },
+    ]);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setName('');
-    setYear('');
-    setFaculty('');
+    if (name.trim() === '' || terms <= 0 || fees <= 0 || code.trim() === '') {
+      return toast.error('Invalid input.');
+    }
+    // TODO - Api call
+  };
+
+  const selectFaculty = (faculty) => {
+    setSelectedFaculties((prevSelectedFaculties) => [...prevSelectedFaculties, faculty]);
+    setFaculties((prevFaculties) => prevFaculties.filter((fac) => fac.id !== faculty.id));
+  };
+
+  const removeFaculty = (faculty) => {
+    setSelectedFaculties((prevFaculties) => prevFaculties.filter((fac) => fac.id !== faculty.id));
+    setFaculties((prevFaculties) => [...prevFaculties, faculty]);
   };
 
   const handleNameChange = (e) => setName(e.target.value);
-  const handleYearChange = (e) => setYear(e.target.value);
-  const handleFacultyChange = (e) => setFaculty(e.target.value);
+  const handleTermChange = (e) => setTerms(e.target.value);
+  const handleFeeChange = (e) => setFees(e.target.value);
+  const handleCodeChange = (e) => setCode(e.target.value);
 
   return (
-    <div className="flex flex-col h-screen">
-      <NavBar styles={classes.navBarStyles} />
-      <div className={classes.containerStyles}>
-        <span className={classes.textStyles}>Enter Student Details</span>
-        <form onSubmit={handleSubmit} className={classes.formStyles}>
-          <Input
-            name="name"
-            type="text"
-            styles={classes.inputStyles}
-            value={name}
-            placeholder="Enter Full Name"
-            handleChange={handleNameChange}
-            required
-          />
-          <Input
-            name="academicYears"
-            type="number"
-            styles={classes.inputStyles}
-            value={year}
-            placeholder="Enter Enrollment No"
-            handleChange={handleYearChange}
-            required
-          />
-          <div className="relative">
-            <Input
-              name="faculty"
-              type="text"
-              styles={classes.inputStyles}
-              value={faculty}
-              placeholder="Add Faculty (optional)"
-              handleChange={handleFacultyChange}
-            />
-            <Button
-              type="button"
-              onClick={showModal}
-              styles={classes.addBtnStyles}
-            >
-              Faculty
-              <IoIosAddCircle
-                className={classes.addIconStyles}
-                color="#FF8000"
-                size="1rem"
-              />
-            </Button>
-            <Modal show={show} handleClose={hideModal}>
-              <SearchBar />
-              <ImageCard name="Abhi" id="1234567" />
-              <ImageCard name="Anyo" id="1234567" />
-              <ImageCard name="Jay" id="1234567" />
-              <ImageCard name="Hiren" id="1234567" />
-              <ImageCard name="Banti" id="1234567" />
-            </Modal>
-          </div>
-          <Button type="submit" styles={classes.buttonStyles}>
-            Add
-            <FiArrowRight />
-          </Button>
-        </form>
-      </div>
+    <div className="flex flex-col h-full justify-center items-center space-y-3">
+      <PageTitle>Add New Department</PageTitle>
+      <form onSubmit={handleSubmit} className="flex flex-col space-y-3 items-center w-11/12 sm:w-1/2 lg:w-4/12">
+        <Input
+          name="departmentName"
+          type="text"
+          value={name}
+          placeholder="Enter Department Name"
+          handleChange={handleNameChange}
+        />
+        <Input
+          name="academicTerms"
+          type="number"
+          value={terms}
+          placeholder="Enter Number Of Terms"
+          handleChange={handleTermChange}
+        />
+        <Input
+          name="departmentFees"
+          type="number"
+          value={fees}
+          placeholder="Enter Department Code"
+          handleChange={handleFeeChange}
+        />
+        <Input
+          name="departmentCode"
+          type="text"
+          value={code}
+          placeholder="Enter Department Code"
+          handleChange={handleCodeChange}
+        />
+        <Selector
+          addLabel="Faculty"
+          items={faculties}
+          selectedItems={selectedFaculties}
+          selectItem={selectFaculty}
+          removeItem={removeFaculty}
+        />
+        <Button
+          type="submit"
+          icon={<FiArrowRight />}
+        >
+          Add
+        </Button>
+      </form>
     </div>
   );
 };

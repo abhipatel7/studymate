@@ -16,7 +16,7 @@ const Input = (props) => {
       {label ? <label>{label}</label> : null}
       <input
         className={classnames(
-          'w-full rounded px-3 py-2 border outline-none border-customGray',
+          'w-full rounded px-3 py-2 border outline-none border-customGray bg-gray-100',
           inputClass,
         )}
         onChange={handleChange}

@@ -4,7 +4,7 @@ const Modal = ({ handleClose, show, children }) => (
       show ? 'block' : 'hidden'
     }`}
   >
-    <section className="fixed bg-white w-4/5 h-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-2xl">
+    <section className="fixed bg-white w-4/5 h-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-2xl overflow-scroll">
       <button
         className="absolute right-1"
         type="button"
