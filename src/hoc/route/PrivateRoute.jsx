@@ -13,7 +13,7 @@ const PrivateRoute = ({
       render={(props) => (
         token && role === requiredRole
           ? <Component {...props} />
-          : <Redirect to={`/${requiredRole}/login`} />
+          : <Redirect to="/" />
       )}
     />
   );

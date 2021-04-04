@@ -14,6 +14,7 @@ import NavBar from './components/NavBar/NavBar';
 import routes from './constants/routes';
 import PrivateRoute from './hoc/route/PrivateRoute';
 import PublicRoute from './hoc/route/PublicRoute';
+import Login from './components/Login/Login';
 
 import { sidebarItems, sidebarItemsBottom } from './constants/sidebar';
 import roles from './ROLES';
@@ -39,6 +40,7 @@ const App = () => {
           ) : null}
         <div className="bg-gray-100 flex-auto">
           <Switch>
+            <PublicRoute exact restricted path={routes.login} component={Login} />
             <PublicRoute exact restricted path={routes.adminLogin} component={AdminLoginPage} />
             <PrivateRoute requiredRole={roles.admin} exact path={routes.createStudent} component={CreateStudent} />
             <PrivateRoute requiredRole={roles.admin} exact path={routes.createDepartment} component={CreateDepartment} />
