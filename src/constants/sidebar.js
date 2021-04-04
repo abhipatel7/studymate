@@ -2,22 +2,24 @@ import { FiHome, FiLogOut } from 'react-icons/fi';
 import { GiTeacher } from 'react-icons/gi';
 import { FaUserGraduate } from 'react-icons/fa';
 
+import routes from './routes';
+
 /* eslint-disable react/jsx-filename-extension */
 export const sidebarItems = [
   {
     label: 'Home',
     icon: <FiHome size={25} />,
-    route: '/admin/login',
+    route: routes.adminLogin,
   },
   {
     label: 'Students',
     icon: <FaUserGraduate size={25} />,
-    route: '/student/login',
+    route: routes.studentLogin,
   },
   {
     label: 'Faculties',
     icon: <GiTeacher size={25} />,
-    route: '/faculty/login',
+    route: routes.facultyLogin,
   },
 ];
 
