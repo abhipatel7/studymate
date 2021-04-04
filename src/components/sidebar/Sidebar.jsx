@@ -10,6 +10,7 @@ const SidebarContent = (props) => {
         <NavLink
           to={item.route}
           className="w-full"
+          key={item.route}
         >
           <div className={classnames(
             'flex w-full font-medium justify-center md:justify-start items-center rounded space-x-5 text-l py-3 cursor-pointer px-2',

@@ -2,6 +2,7 @@ import { FiHome, FiLogOut } from 'react-icons/fi';
 import { GiTeacher } from 'react-icons/gi';
 import { FaUserGraduate } from 'react-icons/fa';
 
+/* eslint-disable react/jsx-filename-extension */
 export const sidebarItems = [
   {
     label: 'Home',

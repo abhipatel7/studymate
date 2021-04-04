@@ -11,6 +11,7 @@ instance.interceptors.response.use((res) => {
   res.msg = msg;
   return Promise.resolve(res);
 }, (err) => {
+  // eslint-disable-next-line no-param-reassign
   err.msg = err.response.data.msg || 'something went wrong.';
   return Promise.reject(err);
 });

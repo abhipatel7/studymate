@@ -11,6 +11,7 @@ import StudentLoginPage from './components/Student/StudentLoginPage/StudentLogin
 import FacultyLoginPage from './components/Faculty/FacultyLoginPage/FacultyLoginPage';
 import Sidebar from './components/sidebar/Sidebar';
 import NavBar from './components/NavBar/NavBar';
+import routes from './constants/routes';
 
 import { sidebarItems, sidebarItemsBottom } from './constants/sidebar';
 
@@ -36,15 +37,11 @@ const App = () => {
         </div>
         <div className="bg-gray-100 flex-auto">
           <Switch>
-            <Route exact path="/admin/login" component={AdminLoginPage} />
-            <Route exact path="/admin/create-student" component={CreateStudent} />
-            <Route
-              exact
-              path="/admin/create-department"
-              component={CreateDepartment}
-            />
-            <Route exact path="/student/login" component={StudentLoginPage} />
-            <Route exact path="/faculty/login" component={FacultyLoginPage} />
+            <Route exact path={routes.adminLogin} component={AdminLoginPage} />
+            <Route exact path={routes.createStudent} component={CreateStudent} />
+            <Route exact path={routes.createDepartment} component={CreateDepartment} />
+            <Route exact path={routes.studentLogin} component={StudentLoginPage} />
+            <Route exact path={routes.facultyLogin} component={FacultyLoginPage} />
             <Route path="*" render={() => 'Error 404 Page Not Found'} />
           </Switch>
         </div>

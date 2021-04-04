@@ -37,9 +37,10 @@ const CreateDepartment = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name.trim() === '' || terms <= 0 || fees <= 0 || code.trim() === '') {
-      return toast.error('Invalid input.');
+      toast.error('Invalid input.');
+    } else {
+      // TODO - Api call
     }
-    // TODO - Api call
   };
 
   const selectFaculty = (faculty) => {
