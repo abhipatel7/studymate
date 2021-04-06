@@ -5,4 +5,5 @@ export default {
   createDepartment: '/admin/create-department',
   studentLogin: '/student/login',
   facultyLogin: '/faculty/login',
+  dashboard: '/dashboard',
 };

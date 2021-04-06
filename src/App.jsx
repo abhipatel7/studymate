@@ -18,6 +18,7 @@ import Login from './components/Login/Login';
 
 import { sidebarItems, sidebarItemsBottom } from './constants/sidebar';
 import roles from './ROLES';
+import Dashboard from './views/Dashboard/Dashboard';
 
 /* eslint-disable max-len */
 const App = () => {
@@ -42,10 +43,11 @@ const App = () => {
           <Switch>
             <PublicRoute exact restricted path={routes.login} component={Login} />
             <PublicRoute exact restricted path={routes.adminLogin} component={AdminLoginPage} />
-            <PrivateRoute requiredRole={roles.admin} exact path={routes.createStudent} component={CreateStudent} />
-            <PrivateRoute requiredRole={roles.admin} exact path={routes.createDepartment} component={CreateDepartment} />
             <PublicRoute restricted exact path={routes.studentLogin} component={StudentLoginPage} />
             <PublicRoute restricted exact path={routes.facultyLogin} component={FacultyLoginPage} />
+            <PrivateRoute requiredRole={roles.admin} exact path={routes.createStudent} component={CreateStudent} />
+            <PrivateRoute requiredRole={roles.admin} exact path={routes.createDepartment} component={CreateDepartment} />
+            <PrivateRoute allRole exact path={routes.dashboard} component={Dashboard} />
             <Route path="*" render={() => 'Error 404 Page Not Found'} />
           </Switch>
         </div>
