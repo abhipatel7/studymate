@@ -1,15 +1,23 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
-import { userLogin } from '../../../store/actions/user';
+import { loginUser } from '../../../api/user';
 import LoginPage from '../../LoginPage/LoginPage';
 
 import ROLES from '../../../ROLES';
+import * as actionTypes from '../../../store/actions/actionTypes';
 
 const FacultyLoginPage = () => {
   const dispatch = useDispatch();
-  const handleSubmit = (email, password) => {
-    dispatch(userLogin(email, password, ROLES.faculty));
+
+  const handleSubmit = async (email, password) => {
+    try {
+      const res = await loginUser(email, password, ROLES.faculty);
+      dispatch({ type: actionTypes.USER_LOGIN_SUCCESS, payload: res });
+    } catch (e) {
+      toast.error(e.msg);
+    }
   };
 
   return <LoginPage isAdmin={false} handleSubmit={handleSubmit} />;
