@@ -37,6 +37,7 @@ export const loginUser = async (userEmail, password, role) => {
     accessToken: access_token,
     refreshToken: refresh_token,
   };
-
+  // eslint-disable-next-line no-undef
+  localStorage.setItem('user', JSON.stringify(payload));
   return payload;
 };
