@@ -6,6 +6,7 @@ import PageTitle from '../../PageTitle/PageTitle';
 import Input from '../../Input/Input';
 import Button from '../../Button/Button';
 import Selector from '../../Selector/Selector';
+import { createDepartment } from '../../../api/department';
 
 const CreateDepartment = () => {
   const [name, setName] = useState('');
@@ -19,27 +20,33 @@ const CreateDepartment = () => {
   useEffect(() => {
     setFaculties([
       {
-        id: 1,
+        facultyId: 1,
         name: 'Anirudh',
       }, {
-        id: 2,
+        facultyId: 2,
         name: 'Vidhi',
       }, {
-        id: 3,
+        facultyId: 3,
         name: 'Abhishek',
       }, {
-        id: 4,
+        facultyId: 4,
         name: 'Pranav',
       },
     ]);
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (name.trim() === '' || terms <= 0 || fees <= 0 || code.trim() === '') {
       toast.error('Invalid input.');
     } else {
-      // TODO - Api call
+      try {
+        // TODO - Api call
+        await createDepartment(name, code, faculties, terms, fees);
+        toast.success('Department created successfully');
+      } catch (err) {
+        toast.error(err.msg);
+      }
     }
   };
 
@@ -80,7 +87,7 @@ const CreateDepartment = () => {
           name="departmentFees"
           type="number"
           value={fees}
-          placeholder="Enter Department Code"
+          placeholder="Enter Department Fees"
           handleChange={handleFeeChange}
         />
         <Input
