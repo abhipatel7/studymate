@@ -22,15 +22,19 @@ const CreateDepartment = () => {
       {
         facultyId: 1,
         name: 'Anirudh',
+        id: 1,
       }, {
         facultyId: 2,
         name: 'Vidhi',
+        id: 2,
       }, {
         facultyId: 3,
         name: 'Abhishek',
+        id: 3,
       }, {
         facultyId: 4,
         name: 'Pranav',
+        id: 4,
       },
     ]);
   }, []);
@@ -41,8 +45,7 @@ const CreateDepartment = () => {
       toast.error('Invalid input.');
     } else {
       try {
-        // TODO - Api call
-        await createDepartment(name, code, faculties, terms, fees);
+        await createDepartment(name, code, selectedFaculties, terms, fees);
         toast.success('Department created successfully');
       } catch (err) {
         toast.error(err.msg);

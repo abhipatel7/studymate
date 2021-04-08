@@ -51,10 +51,10 @@ const Selector = (props) => {
       >
         <SearchBar />
         {items && items.length > 0 ? items.map((item) => (
-          <>
-            <ImageCard name={item.name} id={item.id} key={item.id} />
+          <div key={item.id}>
+            <ImageCard name={item.name} id={item.id} />
             <button type="button" onClick={() => selectItem(item)}>Add</button>
-          </>
+          </div>
         )) : (
           <div>No {addLabel} found!</div>
         )}
