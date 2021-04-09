@@ -16,6 +16,7 @@ import PrivateRoute from './hoc/route/PrivateRoute';
 import PublicRoute from './hoc/route/PublicRoute';
 import Login from './components/Login/Login';
 import Spinner from './components/Spinner/Spinner';
+import CreateFaculty from './views/Faculty/CreateFaculty';
 
 import { adminSidebarItems, adminSidebarItemsBottom } from './constants/sidebar';
 import roles from './ROLES';
@@ -72,6 +73,7 @@ const App = () => {
                 <PrivateRoute requiredRole={roles.admin} exact path={routes.createStudent} component={CreateStudent} />
                 <PrivateRoute requiredRole={roles.admin} exact path={routes.createDepartment} component={CreateDepartment} />
                 <PrivateRoute allRole exact path={routes.dashboard} component={Dashboard} />
+                <PrivateRoute requiredRole={roles.admin} exact path={routes.createFaculty} component={CreateFaculty} />
                 <Route path="*" render={() => 'Error 404 Page Not Found'} />
               </Switch>
             </div>
