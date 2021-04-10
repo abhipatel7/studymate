@@ -20,12 +20,13 @@ const Selector = (props) => {
           <div className="flex h-full w-full items-center space-x-2 py-2">
             {selectedItems && selectedItems.length > 0 ? selectedItems.map((item) => (
               <div className="rounded-full relative px-3 py-1 bg-secondary" key={item.id}>
-                <div
+                <button
+                  type="button"
                   className="absolute -top-1 -right-1 text-red-600 bg-gray-200 rounded-full cursor-pointer"
                   onClick={() => removeItem(item)}
                 >
                   <RiCloseCircleFill size={15} />
-                </div>
+                </button>
                 <div className="text-xs text-white">{item.name}</div>
               </div>
             )) : (
@@ -35,7 +36,8 @@ const Selector = (props) => {
             )}
           </div>
         </div>
-        <div
+        <button
+          type="button"
           className="flex flex-none space-x-3 justify-between items-center px-2 py-1 rounded-full bg-white shadow-md cursor-pointer"
           onClick={() => setShow(true)}
         >
@@ -43,7 +45,7 @@ const Selector = (props) => {
           <div className="text-primary">
             <BsPlusCircleFill size={20} />
           </div>
-        </div>
+        </button>
       </div>
       <Modal
         show={show}

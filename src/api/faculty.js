@@ -7,6 +7,12 @@ const createFaculty = async (name, email, phoneNumber, department) => {
   return res.data.faculty;
 };
 
+const getUnassignedFaculties = async (url) => {
+  const res = await axios.get(url);
+  return res.data.faculties;
+};
+
 export {
   createFaculty,
+  getUnassignedFaculties,
 };

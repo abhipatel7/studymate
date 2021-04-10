@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
+import useSWR from 'swr';
 
 import { toast } from 'react-toastify';
 import PageTitle from '../../PageTitle/PageTitle';
@@ -7,6 +8,7 @@ import Input from '../../Input/Input';
 import Button from '../../Button/Button';
 import Selector from '../../Selector/Selector';
 import { createDepartment } from '../../../api/department';
+import { getUnassignedFaculties } from '../../../api/faculty';
 
 const CreateDepartment = () => {
   const [name, setName] = useState('');
@@ -18,25 +20,11 @@ const CreateDepartment = () => {
 
   // TODO - Get faculties from api
   useEffect(() => {
-    setFaculties([
-      {
-        facultyId: 1,
-        name: 'Anirudh',
-        id: 1,
-      }, {
-        facultyId: 2,
-        name: 'Vidhi',
-        id: 2,
-      }, {
-        facultyId: 3,
-        name: 'Abhishek',
-        id: 3,
-      }, {
-        facultyId: 4,
-        name: 'Pranav',
-        id: 4,
-      },
-    ]);
+    getUnassignedFaculties('/faculty/unassigned')
+      .then((facs) => {
+        setFaculties(facs);
+      })
+      .catch((err) => toast.error(err.msg));
   }, []);
 
   const handleSubmit = async (e) => {
