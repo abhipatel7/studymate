@@ -9,6 +9,7 @@ import Button from '../../Button/Button';
 import { getDepartments } from '../../../api/department';
 import Spinner from '../../Spinner/Spinner';
 import { createStudent } from '../../../api/student';
+import { getTermsByDepartment } from '../../../api/term';
 
 const CreateStudent = () => {
   const [name, setName] = useState('');
@@ -16,16 +17,25 @@ const CreateStudent = () => {
   const [email, setEmail] = useState('');
   const [department, setDepartment] = useState('');
   const [phoneNo, setPhoneNo] = useState('');
+  const [term, setTerm] = useState('');
 
-  const { data: departments, error } = useSWR('/department', getDepartments);
+  const { data: departments, error } = useSWR('/department', getDepartments, {
+    revalidateOnFocus: false,
+    onError: (err) => toast.error(err.msg),
+  });
+
+  const { data: terms, error: termError } = useSWR(department ? `/term/department/${department}` : null, getTermsByDepartment, {
+    revalidateOnFocus: false,
+    onError: (err) => toast.error(err.msg),
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (name.trim() === '' || enrollmentNo.trim() === '' || email.trim() === '' || !department || phoneNo.length !== 10) {
+    if (name.trim() === '' || enrollmentNo.trim() === '' || email.trim() === '' || !department || phoneNo.length !== 10 || !term) {
       toast.error('Invalid input');
     } else {
       try {
-        const student = await createStudent(name, email, enrollmentNo, phoneNo, department);
+        const student = await createStudent(name, email, enrollmentNo, phoneNo, department, term);
         toast.success(`${student.name} was registered successfully.`);
       } catch (err) {
         toast.error(err.msg);
@@ -38,9 +48,10 @@ const CreateStudent = () => {
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handleDepartmentChange = (e) => setDepartment(e.target.value);
   const handlePhoneNoChange = (e) => setPhoneNo(e.target.value);
+  const handleTermChange = (e) => setTerm(e.target.value);
 
   return (
-    <>{ !departments && !error
+    <>{ ((!departments && !error) || (department && !error && !termError && !terms))
       ? (
         <div className="flex flex-col space-y-3 justify-center items-center h-screen">
           <div>
@@ -90,19 +101,33 @@ const CreateStudent = () => {
                 <option value="" disabled>
                   Select Department
                 </option>
-                { departments.map(((depart) => (
+                { departments && departments.map(((depart) => (
                   <option key={depart.id} value={depart.id}>{depart.name}</option>
                 ))) }
               </select>
-              <Input
-                name="phoneNo"
-                type="number"
-                value={phoneNo}
-                placeholder="Enter Phone No"
-                handleChange={handlePhoneNoChange}
+              <select
+                name="term"
+                value={term}
+                className="w-1/2"
+                onChange={handleTermChange}
                 required
-              />
+              >
+                <option value="" disabled>
+                  Select Term
+                </option>
+                { terms && terms.map(((crrTerm) => (
+                  <option key={crrTerm.id} value={crrTerm.id}>Term {crrTerm.name}</option>
+                ))) }
+              </select>
             </div>
+            <Input
+              name="phoneNo"
+              type="number"
+              value={phoneNo}
+              placeholder="Enter Phone No"
+              handleChange={handlePhoneNoChange}
+              required
+            />
             <Button
               type="submit"
               icon={<FiArrowRight />}

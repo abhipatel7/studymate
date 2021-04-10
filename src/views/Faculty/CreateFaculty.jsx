@@ -16,7 +16,10 @@ const CreateFaculty = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [department, setDepartment] = useState('');
 
-  const { data: departments, error } = useSWR('/department', getDepartments);
+  const { data: departments, error } = useSWR('/department', getDepartments, {
+    onError: (err) => toast.error(err.msg),
+    revalidateOnFocus: false,
+  });
 
   const onCreateFaculty = async (e) => {
     e.preventDefault();
@@ -24,7 +27,7 @@ const CreateFaculty = () => {
       toast.error('Invalid input');
     } else {
       try {
-        await createFaculty(name, email, phoneNumber, department);
+        await createFaculty(name, email, phoneNumber, department === '' ? null : department);
         toast.success('Created faculty successfully.');
       } catch (err) {
         toast.error(err.msg);
@@ -79,12 +82,11 @@ const CreateFaculty = () => {
               value={department}
               className="w-1/2"
               onChange={(e) => setDepartment(e.target.value)}
-              required
             >
               <option value="" disabled>
                 Select Department
               </option>
-              { departments.map(((depart) => (
+              { departments && departments.map(((depart) => (
                 <option key={depart.id} value={depart.id}>{depart.name}</option>
               ))) }
             </select>
