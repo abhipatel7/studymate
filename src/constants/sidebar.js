@@ -1,6 +1,7 @@
 import { FiHome, FiLogOut } from 'react-icons/fi';
 import { GiTeacher } from 'react-icons/gi';
 import { FaUserGraduate, FaRegBuilding } from 'react-icons/fa';
+import { MdAttachMoney } from 'react-icons/md';
 
 import routes from './routes';
 
@@ -25,6 +26,19 @@ export const adminSidebarItems = [
     label: 'Add Department',
     icon: <FaRegBuilding size={25} />,
     route: routes.createDepartment,
+  },
+];
+
+export const studentSidebarItems = [
+  {
+    label: 'Dashboard',
+    icon: <FiHome size={25} />,
+    route: routes.dashboard,
+  },
+  {
+    label: 'Pay Fees',
+    icon: <MdAttachMoney size={25} />,
+    route: routes.payFees,
   },
 ];
 

@@ -17,8 +17,9 @@ import PublicRoute from './hoc/route/PublicRoute';
 import Login from './components/Login/Login';
 import Spinner from './components/Spinner/Spinner';
 import CreateFaculty from './views/Faculty/CreateFaculty';
+import PayFees from './views/PayFees/PayFees';
 
-import { adminSidebarItems, adminSidebarItemsBottom } from './constants/sidebar';
+import { adminSidebarItems, adminSidebarItemsBottom, studentSidebarItems } from './constants/sidebar';
 import roles from './ROLES';
 import Dashboard from './views/Dashboard/Dashboard';
 import * as actionTypes from './store/actions/actionTypes';
@@ -27,6 +28,7 @@ import * as actionTypes from './store/actions/actionTypes';
 const App = () => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.user.accessToken);
+  const role = useSelector((state) => state.user.role);
 
   const [ready, setReady] = useState(false);
 
@@ -46,7 +48,11 @@ const App = () => {
   if (token) {
     // TODO - set sidebar items according to user role
     axios.defaults.headers.Authorization = `Bearer ${token}`;
-    sidebarItems = adminSidebarItems;
+    if (role === roles.admin) {
+      sidebarItems = adminSidebarItems;
+    } else if (role === roles.student) {
+      sidebarItems = studentSidebarItems;
+    }
     sidebarItemsBottom = adminSidebarItemsBottom;
   }
 
@@ -74,6 +80,7 @@ const App = () => {
                 <PrivateRoute requiredRole={roles.admin} exact path={routes.createDepartment} component={CreateDepartment} />
                 <PrivateRoute allRole exact path={routes.dashboard} component={Dashboard} />
                 <PrivateRoute requiredRole={roles.admin} exact path={routes.createFaculty} component={CreateFaculty} />
+                <PrivateRoute requiredRole={roles.student} exact path={routes.payFees} component={PayFees} />
                 <Route path="*" render={() => 'Error 404 Page Not Found'} />
               </Switch>
             </div>

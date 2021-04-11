@@ -8,4 +8,5 @@ export default {
   facultyLogin: '/faculty/login',
   dashboard: '/dashboard',
   department: '/department',
+  payFees: '/pay-fees',
 };
