@@ -25,6 +25,7 @@ const Button = (props) => {
           'bg-secondary': color === 'secondary',
           'py-3 px-4': !sm,
           'px-3 py-1': sm,
+          'bg-red-600': color === 'red',
         },
       )}
     >
