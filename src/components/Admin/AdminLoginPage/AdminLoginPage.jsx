@@ -20,7 +20,7 @@ const AdminLoginPage = () => {
     }
   };
 
-  return <LoginPage isAdmin handleSubmit={handleSubmit} />;
+  return <LoginPage handleSubmit={handleSubmit} />;
 };
 
 export default AdminLoginPage;

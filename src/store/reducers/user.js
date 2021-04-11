@@ -1,3 +1,4 @@
+import { initial } from 'lodash';
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
@@ -24,6 +25,10 @@ const userReducer = (state = initialState, action) => {
         ...action.payload,
       };
     case actionTypes.USER_LOGIN_FAIL:
+      return {
+        ...initialState,
+      };
+    case actionTypes.USER_LOGOUT:
       return {
         ...initialState,
       };

@@ -18,6 +18,7 @@ import Login from './components/Login/Login';
 import Spinner from './components/Spinner/Spinner';
 import CreateFaculty from './views/Faculty/CreateFaculty';
 import PayFees from './views/PayFees/PayFees';
+import Logout from './views/Logout/Logout';
 
 import { adminSidebarItems, adminSidebarItemsBottom, studentSidebarItems } from './constants/sidebar';
 import roles from './ROLES';
@@ -73,7 +74,7 @@ const App = () => {
             <div className="bg-gray-100 Contetnt-wrapper flex-auto overflow-y-scroll">
               <Switch>
                 <PublicRoute exact restricted path={routes.login} component={Login} />
-                <PublicRoute exact restricted path={routes.adminLogin} componvcent={AdminLoginPage} />
+                <PublicRoute exact restricted path={routes.adminLogin} component={AdminLoginPage} />
                 <PublicRoute restricted exact path={routes.studentLogin} component={StudentLoginPage} />
                 <PublicRoute restricted exact path={routes.facultyLogin} component={FacultyLoginPage} />
                 <PrivateRoute requiredRole={roles.admin} exact path={routes.createStudent} component={CreateStudent} />
@@ -81,6 +82,7 @@ const App = () => {
                 <PrivateRoute allRole exact path={routes.dashboard} component={Dashboard} />
                 <PrivateRoute requiredRole={roles.admin} exact path={routes.createFaculty} component={CreateFaculty} />
                 <PrivateRoute requiredRole={roles.student} exact path={routes.payFees} component={PayFees} />
+                <PrivateRoute allRole exact path={routes.logout} component={Logout} />
                 <Route path="*" render={() => 'Error 404 Page Not Found'} />
               </Switch>
             </div>

@@ -9,4 +9,5 @@ export default {
   dashboard: '/dashboard',
   department: '/department',
   payFees: '/pay-fees',
+  logout: '/logout',
 };
