@@ -54,20 +54,20 @@ const App = () => {
     <>
       { ready ? (
         <div className="flex flex-col min-h-screen">
-          <div className="flex flex-row flex-none h-11">
+          <div className="flex flex-row flex-none fixed w-full h-11">
             <NavBar isAdmin />
           </div>
-          <div className="flex flex-row flex-1 bg-white">
+          <div className="flex flex-row flex-1 bg-white mt-11">
             {token
               ? (
                 <div className="w-1/6 flex-none">
                   <Sidebar items={sidebarItems} bottom={sidebarItemsBottom} />
                 </div>
               ) : null}
-            <div className="bg-gray-100 flex-auto">
+            <div className="bg-gray-100 Contetnt-wrapper flex-auto overflow-y-scroll">
               <Switch>
                 <PublicRoute exact restricted path={routes.login} component={Login} />
-                <PublicRoute exact restricted path={routes.adminLogin} component={AdminLoginPage} />
+                <PublicRoute exact restricted path={routes.adminLogin} componvcent={AdminLoginPage} />
                 <PublicRoute restricted exact path={routes.studentLogin} component={StudentLoginPage} />
                 <PublicRoute restricted exact path={routes.facultyLogin} component={FacultyLoginPage} />
                 <PrivateRoute requiredRole={roles.admin} exact path={routes.createStudent} component={CreateStudent} />

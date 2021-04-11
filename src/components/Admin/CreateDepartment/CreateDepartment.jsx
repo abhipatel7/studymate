@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
-import useSWR from 'swr';
 
 import { toast } from 'react-toastify';
 import PageTitle from '../../PageTitle/PageTitle';

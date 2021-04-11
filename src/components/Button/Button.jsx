@@ -10,6 +10,7 @@ const Button = (props) => {
     type,
     color,
     onClick,
+    sm,
   } = props;
   return (
     <button
@@ -17,15 +18,17 @@ const Button = (props) => {
       type={type}
       onClick={onClick}
       className={classnames(
-        'text-white text-xl focus:outline-none outline-none py-3 px-4 flex space-x-2 justify-between items-center',
+        'text-white text-xl focus:outline-none outline-none flex space-x-2 justify-between items-center',
         {
           'rounded': rounded,
           'bg-primary': !color,
           'bg-secondary': color === 'secondary',
+          'py-3 px-4': !sm,
+          'px-3 py-1': sm,
         },
       )}
     >
-      <div>
+      <div className="text-sm">
         {children}
       </div>
       {icon
