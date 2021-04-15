@@ -10,4 +10,5 @@ export default {
   department: '/department',
   payFees: '/pay-fees',
   logout: '/logout',
+  noticeBoard: '/notice-board',
 };

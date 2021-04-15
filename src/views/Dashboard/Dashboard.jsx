@@ -3,8 +3,9 @@ import { useSelector } from 'react-redux';
 
 import roles from '../../ROLES';
 import AdminDashboard from './AdminDashboard';
+import FacultyDashboard from './FacultyDashboard';
 import StudentDashboard from './StudentDashboard';
-/* eslint-disable arrow-body-style */
+
 const Dashboard = () => {
   // TODO - show dashboard depending on user role
   const role = useSelector((state) => state.user.role);
@@ -14,6 +15,8 @@ const Dashboard = () => {
     dashboard = <AdminDashboard />;
   } else if (role === roles.student) {
     dashboard = <StudentDashboard />;
+  } else if (role === roles.faculty) {
+    dashboard = <FacultyDashboard />;
   }
 
   return (

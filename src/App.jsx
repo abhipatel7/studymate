@@ -19,8 +19,11 @@ import Spinner from './components/Spinner/Spinner';
 import CreateFaculty from './views/Faculty/CreateFaculty';
 import PayFees from './views/PayFees/PayFees';
 import Logout from './views/Logout/Logout';
+import NoticeBoard from './views/NoticeBoard/NoticeBoard';
 
-import { adminSidebarItems, adminSidebarItemsBottom, studentSidebarItems } from './constants/sidebar';
+import {
+  adminSidebarItems, adminSidebarItemsBottom, studentSidebarItems, facultySidebarItems,
+} from './constants/sidebar';
 import roles from './ROLES';
 import Dashboard from './views/Dashboard/Dashboard';
 import * as actionTypes from './store/actions/actionTypes';
@@ -47,12 +50,13 @@ const App = () => {
   let sidebarItems = [];
   let sidebarItemsBottom = [];
   if (token) {
-    // TODO - set sidebar items according to user role
     axios.defaults.headers.Authorization = `Bearer ${token}`;
     if (role === roles.admin) {
       sidebarItems = adminSidebarItems;
     } else if (role === roles.student) {
       sidebarItems = studentSidebarItems;
+    } else if (role === roles.faculty) {
+      sidebarItems = facultySidebarItems;
     }
     sidebarItemsBottom = adminSidebarItemsBottom;
   }
@@ -83,6 +87,7 @@ const App = () => {
                 <PrivateRoute requiredRole={roles.admin} exact path={routes.createFaculty} component={CreateFaculty} />
                 <PrivateRoute requiredRole={roles.student} exact path={routes.payFees} component={PayFees} />
                 <PrivateRoute allRole exact path={routes.logout} component={Logout} />
+                <PrivateRoute allRole exact path={routes.noticeBoard} component={NoticeBoard} />
                 <Route path="*" render={() => 'Error 404 Page Not Found'} />
               </Switch>
             </div>

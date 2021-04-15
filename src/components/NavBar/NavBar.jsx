@@ -7,7 +7,7 @@ const NavBar = (props) => {
   const { isAdmin } = props;
   return (
     <>
-      <nav className="flex items-center justify-center md:justify-start md:pl-3 border-b bg-white w-full">
+      <nav className="flex items-center sticky top-0 justify-center md:justify-start md:pl-3 border-b bg-white w-full">
         <img
           className="lg:ml-10 w-52"
           src={isAdmin ? AdminLogo : Logo}

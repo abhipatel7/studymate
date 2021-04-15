@@ -40,7 +40,7 @@ const Sidebar = (props) => {
   const location = useLocation();
 
   return (
-    <div className="flex flex-col h-full justify-between items-center border-r shadow-lg">
+    <div className="flex flex-col h-full w-full shadow-lg justify-between items-center border-r">
       <SidebarContent
         items={items}
         location={location}

@@ -56,7 +56,6 @@ export default function DashboardContentCard(props) {
             </Button>
             <Button
               rounded
-              color="red"
               onClick={() => {
                 onDelete(id);
                 setDeleteShow(false);
