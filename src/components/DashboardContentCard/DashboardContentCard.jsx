@@ -7,7 +7,7 @@ import Button from '../Button/Button';
 
 export default function DashboardContentCard(props) {
   const {
-    title, onDelete, id,
+    title, onDelete, id, admin,
   } = props;
 
   const [deleteShow, setDeleteShow] = useState(false);
@@ -30,15 +30,17 @@ export default function DashboardContentCard(props) {
           <div className="font-semibold text-sm">{title || 'Title'}</div>
           <div className="truncate">Description Here.</div>
         </div>
-        <div className="flex flex-col justify-between items-center space-y-1 pr-4">
-          <button
-            type="button"
-            className="text-red-600"
-            onClick={() => setDeleteShow(true)}
-          >
-            <RiDeleteBinLine size={20} />
-          </button>
-        </div>
+        { admin ? (
+          <div className="flex flex-col justify-between items-center space-y-1 pr-4">
+            <button
+              type="button"
+              className="text-red-600"
+              onClick={() => setDeleteShow(true)}
+            >
+              <RiDeleteBinLine size={20} />
+            </button>
+          </div>
+        ) : null }
       </div>
       <Modal
         show={deleteShow}

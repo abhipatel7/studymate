@@ -11,30 +11,30 @@ const Login = () => {
     <div className="h-full w-full flex flex-col justify-center items-center space-y-5">
       <PageTitle>Login As</PageTitle>
       <div className="flex flex-col justify-center items-center space-y-3 md:flex-row md:space-x-3 md:w-1/3 md:justify-evenly md:items-center">
-        <div onClick={() => history.push(routes.adminLogin)}>
+        <button type="button" onClick={() => history.push(routes.adminLogin)}>
           <img
             className="rounded-full w-14 bg-gray-100 mr-4"
             src={`https://robohash.org/${Math.floor(Math.random() * 10)}.png`}
             alt="admin"
           />
           Admin
-        </div>
-        <div onClick={() => history.push(routes.studentLogin)}>
+        </button>
+        <button type="button" onClick={() => history.push(routes.studentLogin)}>
           <img
             className="rounded-full w-14 bg-gray-100 mr-4"
             src={`https://robohash.org/${Math.floor(Math.random() * 10)}.png`}
             alt="student"
           />
           Student
-        </div>
-        <div onClick={() => history.push(routes.facultyLogin)}>
+        </button>
+        <button type="button" onClick={() => history.push(routes.facultyLogin)}>
           <img
             className="rounded-full w-14 bg-gray-100 mr-4"
             src={`https://robohash.org/${Math.floor(Math.random() * 10)}.png`}
             alt="faculty"
           />
           Faculty
-        </div>
+        </button>
       </div>
     </div>
   );

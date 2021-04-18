@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { RiCloseCircleFill } from 'react-icons/ri';
 import { BsPlusCircleFill } from 'react-icons/bs';
 
-import SearchBar from '../SearchBar/SearchBar';
 import ImageCard from '../ImageCard/ImageCard';
 import Modal from '../Modal/Modal';
 

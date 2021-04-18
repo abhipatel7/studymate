@@ -3,7 +3,8 @@ import StripeCheckout from 'react-stripe-checkout';
 import logo from '../../assets/img/StudyMateNabBar.svg';
 
 const PayFees = () => {
-  const onToken = (token) => {
+  const onToken = () => {
+    // eslint-disable-next-line no-alert
     alert('Payment Successful');
   };
 

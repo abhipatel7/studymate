@@ -27,12 +27,12 @@ export default function NoticeBoard() {
   const [department, setDepartment] = useState('');
   const [term, setTerm] = useState('');
 
-  const { data: departments, error } = useSWR('/department', getDepartments, {
+  const { data: departments } = useSWR('/department', getDepartments, {
     revalidateOnFocus: false,
     onError: (err) => toast.error(err.msg),
   });
 
-  const { data: terms, error: termError } = useSWR(department ? `/term/department/${department}` : null, getTermsByDepartment, {
+  const { data: terms } = useSWR(department ? `/term/department/${department}` : null, getTermsByDepartment, {
     revalidateOnFocus: false,
     onError: (err) => toast.error(err.msg),
   });

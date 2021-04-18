@@ -13,7 +13,7 @@ const getDepartments = async (url) => {
 };
 
 const deleteDepartment = async (id) => {
-  const res = await axios.delete(`/department?department=${id}`);
+  await axios.delete(`/department?department=${id}`);
 };
 
 const editDepartment = async (id, name, code, tutionFee) => {

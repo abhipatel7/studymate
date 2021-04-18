@@ -20,8 +20,10 @@ export const loginUser = async (userEmail, password, role) => {
   } = user;
   let departmentId = null;
   let enrollmentNumber = null;
+  let termId = null;
   if (role === 'student') {
     departmentId = user.department_id;
+    termId = user.term_id;
     enrollmentNumber = user.enrollment_number;
   } else if (role === 'faculty') {
     departmentId = user.department_id;
@@ -34,6 +36,7 @@ export const loginUser = async (userEmail, password, role) => {
     phoneNumber: phone_number,
     enrollmentNumber,
     departmentId,
+    termId,
     accessToken: access_token,
     refreshToken: refresh_token,
   };

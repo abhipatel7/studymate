@@ -8,6 +8,7 @@ import routes from '../../constants/routes';
 import { getDepartments, deleteDepartment } from '../../api/department';
 import { deleteFaculty, getFaculties } from '../../api/faculty';
 import { getStudent, deleteStudent } from '../../api/student';
+import { getSubject, deleteSubject } from '../../api/subject';
 
 export default function AdminDashboard() {
   const { data: departments, error: departmentError, mutate: departmentMutate } = useSWR('/department', getDepartments, {
@@ -20,6 +21,10 @@ export default function AdminDashboard() {
 
   const { data: students, error: studentsError, mutate: studentMutation } = useSWR('/student', getStudent, {
     onError: () => toast.error('Could not fetch students'),
+  });
+
+  const { data: subjects, error: subjectError, mutate: subjectMutation } = useSWR('/subject', getSubject, {
+    onError: (err) => toast.error(err),
   });
 
   const onDeleteDepartment = async (id) => {
@@ -52,6 +57,16 @@ export default function AdminDashboard() {
     }
   };
 
+  const onDeleteSubject = async (id) => {
+    try {
+      await deleteSubject(id);
+      subjectMutation();
+      toast.success('Successfully deleted subject.');
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+
   return (
     <div className="flex flex-col space-y-3 h-full w-full p-5">
       <div>
@@ -59,6 +74,7 @@ export default function AdminDashboard() {
       </div>
       <div className="flex flex-1 flex-col space-y-3">
         <DashboardContentWrapper
+          admin
           title="Departments"
           data={departments}
           error={departmentError}
@@ -81,10 +97,10 @@ export default function AdminDashboard() {
         />
         <DashboardContentWrapper
           title="Subjects"
-          redirectTo={routes.createStudent}
-          data={students}
-          error={studentsError}
-          onDelete={onDeleteStudent}
+          redirectTo={routes.addSubject}
+          data={subjects}
+          error={subjectError}
+          onDelete={onDeleteSubject}
         />
       </div>
     </div>

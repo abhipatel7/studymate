@@ -1,4 +1,3 @@
-import { initial } from 'lodash';
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
@@ -9,6 +8,7 @@ const initialState = {
   phoneNumber: null,
   enrollmentNumber: null,
   departmentId: null,
+  termId: null,
   accessToken: null,
   refreshToken: null,
 };

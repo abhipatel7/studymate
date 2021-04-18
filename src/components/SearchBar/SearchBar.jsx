@@ -2,6 +2,7 @@ import { Input } from 'antd';
 
 const { Search } = Input;
 
+// eslint-disable-next-line no-console
 const onSearch = (value) => console.log(value);
 
 const SearchBar = () => (
