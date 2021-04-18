@@ -17,7 +17,6 @@ const CreateDepartment = () => {
   const [faculties, setFaculties] = useState([]);
   const [selectedFaculties, setSelectedFaculties] = useState([]);
 
-  // TODO - Get faculties from api
   useEffect(() => {
     getUnassignedFaculties('/faculty/unassigned')
       .then((facs) => {

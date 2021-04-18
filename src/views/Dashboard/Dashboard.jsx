@@ -7,7 +7,6 @@ import FacultyDashboard from './FacultyDashboard';
 import StudentDashboard from './StudentDashboard';
 
 const Dashboard = () => {
-  // TODO - show dashboard depending on user role
   const role = useSelector((state) => state.user.role);
 
   let dashboard = null;

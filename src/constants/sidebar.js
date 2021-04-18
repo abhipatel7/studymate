@@ -3,6 +3,7 @@ import { GiTeacher } from 'react-icons/gi';
 import { FaUserGraduate, FaRegBuilding } from 'react-icons/fa';
 import { MdAttachMoney } from 'react-icons/md';
 import { AiOutlineNotification } from 'react-icons/ai';
+import { IoBookSharp } from 'react-icons/io5';
 
 import routes from './routes';
 
@@ -32,6 +33,11 @@ export const adminSidebarItems = [
     label: 'Notice Board',
     icon: <AiOutlineNotification size={25} />,
     route: routes.noticeBoard,
+  },
+  {
+    label: 'Add Subject',
+    icon: <IoBookSharp size={25} />,
+    route: routes.addSubject,
   },
 ];
 

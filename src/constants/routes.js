@@ -11,4 +11,5 @@ export default {
   payFees: '/pay-fees',
   logout: '/logout',
   noticeBoard: '/notice-board',
+  addSubject: '/create-subject',
 };

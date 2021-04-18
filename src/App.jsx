@@ -20,6 +20,8 @@ import CreateFaculty from './views/Faculty/CreateFaculty';
 import PayFees from './views/PayFees/PayFees';
 import Logout from './views/Logout/Logout';
 import NoticeBoard from './views/NoticeBoard/NoticeBoard';
+import NotFound from './components/NotFound/NotFound';
+import AddSubject from './views/AddSubject/AddSubject';
 
 import {
   adminSidebarItems, adminSidebarItemsBottom, studentSidebarItems, facultySidebarItems,
@@ -88,7 +90,8 @@ const App = () => {
                 <PrivateRoute requiredRole={roles.student} exact path={routes.payFees} component={PayFees} />
                 <PrivateRoute allRole exact path={routes.logout} component={Logout} />
                 <PrivateRoute allRole exact path={routes.noticeBoard} component={NoticeBoard} />
-                <Route path="*" render={() => 'Error 404 Page Not Found'} />
+                <PrivateRoute requiredRole={roles.admin} exact component={AddSubject} path={routes.addSubject} />
+                <Route path="*" component={NotFound} />
               </Switch>
             </div>
           </div>

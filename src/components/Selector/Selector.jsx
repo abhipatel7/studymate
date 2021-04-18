@@ -51,7 +51,6 @@ const Selector = (props) => {
         show={show}
         handleClose={() => setShow(false)}
       >
-        <SearchBar />
         {items && items.length > 0 ? items.map((item) => (
           <div key={item.id}>
             <ImageCard name={item.name} id={item.id} />

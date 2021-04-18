@@ -79,6 +79,13 @@ export default function AdminDashboard() {
           error={studentsError}
           onDelete={onDeleteStudent}
         />
+        <DashboardContentWrapper
+          title="Subjects"
+          redirectTo={routes.createStudent}
+          data={students}
+          error={studentsError}
+          onDelete={onDeleteStudent}
+        />
       </div>
     </div>
   );
