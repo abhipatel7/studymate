@@ -50,7 +50,7 @@ const CreateFaculty = () => {
         <div className="flex flex-col justify-center items-center space-y-3 h-full">
           <PageTitle>Create Faculty</PageTitle>
           <form
-            className="flex flex-col justify-center items-center space-y-3"
+            className="flex flex-col justify-center items-center space-y-3 w-11/12 sm:w-1/2 lg:w-4/12"
             onSubmit={onCreateFaculty}
           >
             <Input

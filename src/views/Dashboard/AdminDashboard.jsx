@@ -82,6 +82,7 @@ export default function AdminDashboard() {
           redirectTo={routes.createDepartment}
         />
         <DashboardContentWrapper
+          admin
           title="Faculties"
           redirectTo={routes.createFaculty}
           data={faculties}
@@ -89,6 +90,7 @@ export default function AdminDashboard() {
           onDelete={onDeleteFaculty}
         />
         <DashboardContentWrapper
+          admin
           title="Students"
           redirectTo={routes.createStudent}
           data={students}
@@ -96,6 +98,7 @@ export default function AdminDashboard() {
           onDelete={onDeleteStudent}
         />
         <DashboardContentWrapper
+          admin
           title="Subjects"
           redirectTo={routes.addSubject}
           data={subjects}
